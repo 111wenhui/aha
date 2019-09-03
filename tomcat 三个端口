@@ -1,0 +1,8 @@
+   今天开发了一个新项目，在进行部署的时候报了端口冲突，8009已被绑定。之前一直没有注意到tomcat的这些端口。
+   现在记录一下tomcat的这些端口都是干什么用的。
+   <Server port="" shutdown="">
+   这个端口负责监听关闭tomcat的请求，如果有多个tomcat的关闭端口都是同一个的话，那么使用脚本关闭，有可能同时关闭多个应用。
+   <Connector port="">
+   服务器连接端口号，该端口用于监听用户请求该tomcat服务。redirectPort="" 是收到一个http请求后，重新定向的端口号。
+   <Connector port="" protocol="AJP/" redirectPort="">
+   与其他服务器通信的端口。
